@@ -1,0 +1,16 @@
+*{color:white}
+.fixed{position: fixed;}
+button,input{
+    height: 30px;
+    width: 80px;
+    background-color: black;
+    border: 1px solid white;
+}
+
+#CreationWindow{
+    top: 20px;
+}
+#SideBar{
+    width: 20%;
+    margin-left: 80%;
+}
