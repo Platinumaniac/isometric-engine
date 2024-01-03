@@ -42,10 +42,11 @@ document.getElementById("newMapForm").addEventListener("submit", (e) => {
         rowIndex ++
     }
     currentMap = tempmap
+    console.log(currentMap)
   });
 function hideElement(id){document.getElementById(id).setAttribute("hide","")}
 function showElement(id){document.getElementById(id).removeAttribute("hide")}
-window.addEventListener("wheel", (event)=>{zoom -= (event.deltaY/100)/4});
-window.addEventListener("mousemove",(event)=>{mouseDelta = [event.movementX/zoom,event.movementY/zoom]})
+window.addEventListener("wheel", (event)=>{zoom -= (event.deltaY/100)/4; if (zoom <= 0){zoom = 0.25}});
+window.addEventListener("mousemove",(event)=>{mouseDelta = [event.movementX/zoom,event.movementY/zoom]; mpos = [event.clientX,event.clientY]})
 window.addEventListener("mousedown",(event)=>{mouseClick = true; })
 window.addEventListener("mouseup",(event)=>{mouseClick = false});

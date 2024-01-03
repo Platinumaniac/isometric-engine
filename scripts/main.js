@@ -1,11 +1,10 @@
 const canvas = document.getElementById("view");
 const ctx = canvas.getContext("2d");
-
-var zoom = 4
+var zoom = 4;
 var screenScroll = [0,0]
 var mouseClick = false
 var mouseDelta = [0,0]
-
+var mpos = [0,0]
 function updateScreen()
 {
 canvas.width = window.innerWidth/zoom;
@@ -22,7 +21,13 @@ function loop()
     {screenScroll[0] +=Math.round((mouseDelta[0]));
     screenScroll[1] += Math.round((mouseDelta[1]));
     mouseDelta = [0,0]
+    
+    
+    
 }
+    
     updateScreen()
     drawTiles(currentMap,testTile,screenScroll)
+    colTiles(currentMap,screenScroll)
+    
 }
