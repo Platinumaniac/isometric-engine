@@ -38,25 +38,13 @@ function colTiles(tilemap,origin){
     var bottomcol = false
     var xo = 0
     var yo = 0
-    var rows = 1
-    var layers = 0
-    var tiles
+    var rows = 0
     tilemap.forEach(layer=>{
         rows = 0
-        console.log(layer)
         layer.forEach(row=>{
-            console.log(row)
-            xo = -64*rows
-            yo = 32*rows-layers*64
-            tiles = 0
+            xo = -rows*64
+            yo = rows*32
             row.forEach(tile=>{
-                console.log(tile)
-                top.draw("#FFFFFF",0.25)
-                left.draw("#ff0000",0.25)
-                right.draw("#00ff00",0.25)
-                bottom.draw("#0000ff",0.25)
-                xo +=64
-                yo += 32
                 top.x = xo
                 top.y = yo
                 left.x = xo
@@ -65,11 +53,14 @@ function colTiles(tilemap,origin){
                 right.y = yo
                 bottom.x = xo
                 bottom.y = yo
-                tiles += 1
+                top.draw("#FFFFFF",0.25)
+                left.draw("#ff0000",0.25)
+                right.draw("#00ff00",0.25)
+                xo += 64
+                yo += 32
             });
-            rows += 1
+            rows+= 1
         });
-        layers += 1
     });
     return [topcol,leftcol,rightcol,bottomcol],[]
 }

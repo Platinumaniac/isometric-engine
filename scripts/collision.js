@@ -25,7 +25,6 @@ class colPoly{
             view.removeChild(child)
           }
         this.points.forEach(point=>{
-            console.log(point)
             var marker = loadImage("assets/marker.png")
             marker.style.position = "absolute";
             marker.style.left = point[0]+'px';
